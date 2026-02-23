@@ -216,7 +216,7 @@ export default function ReportsPage() {
                 <div className="card report-card">
                     <h3><FiTrendingUp /> Weight Trend</h3>
                     {weightChartData && weightChartData.labels.length > 0 ? (
-                        <div style={{ height: 280 }}>
+                        <div className="h-[220px] md:h-[280px]">
                             <Line data={weightChartData} options={baseChartOptions} />
                         </div>
                     ) : (
@@ -230,7 +230,7 @@ export default function ReportsPage() {
                 <div className="card report-card">
                     <h3><FiZap /> Calorie Analysis</h3>
                     {calorieChartData && calorieChartData.labels.length > 0 ? (
-                        <div style={{ height: 280 }}>
+                        <div className="h-[220px] md:h-[280px]">
                             <Bar data={calorieChartData} options={baseChartOptions} />
                         </div>
                     ) : (
@@ -244,7 +244,7 @@ export default function ReportsPage() {
                 <div className="card report-card">
                     <h3><FiPieChart /> Macros Breakdown</h3>
                     {macrosChartData && (data?.macros.protein || data?.macros.carbs || data?.macros.fat) ? (
-                        <div style={{ height: 280, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <div className="h-[220px] md:h-[280px] flex items-center justify-center">
                             <Doughnut data={macrosChartData} options={doughnutOptions} />
                         </div>
                     ) : (
@@ -273,22 +273,22 @@ export default function ReportsPage() {
                 {/* Activity Summary */}
                 <div className="card report-card">
                     <h3><FiActivity /> Activity Summary</h3>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 8 }}>
+                    <div className="grid grid-cols-2 gap-3 md:gap-4 mt-2">
                         <div className="summary-card">
                             <div className="label">Total Steps</div>
-                            <div className="value" style={{ fontSize: '1.3rem' }}>{(data?.summary.totalSteps || 0).toLocaleString()}</div>
+                            <div className="value text-base md:text-xl">{(data?.summary.totalSteps || 0).toLocaleString()}</div>
                         </div>
                         <div className="summary-card">
                             <div className="label">Total Distance</div>
-                            <div className="value" style={{ fontSize: '1.3rem' }}>{(data?.summary.totalDistance || 0).toFixed(1)} km</div>
+                            <div className="value text-base md:text-xl">{(data?.summary.totalDistance || 0).toFixed(1)} km</div>
                         </div>
                         <div className="summary-card">
                             <div className="label">Exercise Time</div>
-                            <div className="value" style={{ fontSize: '1.3rem' }}>{data?.summary.totalDuration || 0} min</div>
+                            <div className="value text-base md:text-xl">{data?.summary.totalDuration || 0} min</div>
                         </div>
                         <div className="summary-card">
                             <div className="label">Active Days</div>
-                            <div className="value" style={{ fontSize: '1.3rem' }}>{data?.summary.activeDays || 0} days</div>
+                            <div className="value text-base md:text-xl">{data?.summary.activeDays || 0} days</div>
                         </div>
                     </div>
                 </div>
